@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} - Assemble</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar (Navbar) -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('saved_projects') }}">Saved Projects</a></li>
+                <li><a href="{{ url_for('analytics') }}">Analytics</a></li>
+                <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Project Details Section (Top-left corner) -->
+        <div class="project-details">
+            <h1>{{ project.name }}</h1>
+            <p><strong>Date Created:</strong> {{ project.date_added }}</p>
+            <p><strong>Description:</strong> {{ project.description }}</p>
+        </div>
+
+        <!-- Main Content Area (for other content like Kanban board) -->
+        <div class="main-content">
+
+
+
+        </div>
+    </div>
+</body>
+</html>
