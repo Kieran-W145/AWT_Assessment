@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-
+import os
 app = Flask(__name__)
-
-# Configure the database URI (use SQLite for development)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///projects.db'  # File-based SQLite database
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable modification tracking
+# Configure the database URI
+if 'DATABASE_URL' in os.environ:
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///projects.db'  # Use SQLite locally
 
 # Initialize the SQLAlchemy object
 db = SQLAlchemy(app)
