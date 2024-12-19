@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saved Projects - Assemble</title>
+    <title>Saved Projects</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -18,37 +18,19 @@
             </ul>
         </nav>
 
-        <!-- Main Content Area -->
-        <h1>{{ project.name }}</h1>
-<p>{{ project.description }}</p>
-
-<h3>Tasks</h3>
-<div class="task-columns">
-    <div class="column">
-        <h4>Requested</h4>
-        {% for task in project.tasks if task.status == 'requested' %}
-            <p>{{ task.name }} - {{ task.description }} - Importance: {{ task.importance }}</p>
-        {% endfor %}
-    </div>
-
-    <div class="column">
-        <h4>In Progress</h4>
-        {% for task in project.tasks if task.status == 'in-progress' %}
-            <p>{{ task.name }} - {{ task.description }} - Importance: {{ task.importance }}</p>
-        {% endfor %}
-    </div>
-
-    <div class="column">
-        <h4>Done</h4>
-        {% for task in project.tasks if task.status == 'done' %}
-            <p>{{ task.name }} - {{ task.description }} - Importance: {{ task.importance }}</p>
-        {% endfor %}
-    </div>
-</div>
-
-<!-- Button to add a new task -->
-<a href="#" onclick="openTaskModal()">Add Task</a>
-
+        <div class="main-content">
+            <h1>Your Saved Projects</h1>
+            <ul>
+                <!-- Loop through the projects and display each one with a link -->
+                {% for project in projects %}
+                    <li>
+                        <a href="{{ url_for('project_page', project_id=project.id) }}">
+                            {{ project.name }} - {{ project.date_added }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </body>
 </html>

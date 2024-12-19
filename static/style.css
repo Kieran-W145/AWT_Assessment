@@ -233,3 +233,122 @@ h1 {
     font-size: 16px;
     color: #555;
 }
+
+
+/* Task Columns */
+.task-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.column {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 300px; /* Ensure columns are the same height */
+}
+
+.column h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.task {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.task h5 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.task p {
+    margin: 5px 0;
+}
+
+/* Task Form */
+form {
+    margin-top: 30px;
+}
+
+form label {
+    display: block;
+    margin: 5px 0;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+
+#taskFormContainer {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: fixed;
+    top: 10%;  /* Adjust this value to move the form up (lower percentage moves it higher) */
+    right: 20px;
+    display: none;
+    z-index: 1000;
+}
+
+#taskFormContainer form label {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;  /* Smaller font size for labels */
+}
+
+#taskFormContainer form input,
+#taskFormContainer form textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;  /* Smaller font size for inputs */
+}
+
+#taskFormContainer form textarea {
+    height: 80px;  /* Reduced height for textarea */
+}
+
+#taskFormContainer form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;  /* Smaller padding for the button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;  /* Smaller font size for the button */
+}
+
+#taskFormContainer form button:hover {
+    background-color: #45a049;
+}

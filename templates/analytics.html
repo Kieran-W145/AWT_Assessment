@@ -1,14 +1,15 @@
+<!-- analytics.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics - Assemble</title>
+    <title>Analytics</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
-<!-- Left Sidebar (Navbar) -->
+    <div class="container">
+        <!-- Left Sidebar (Navbar) -->
         <nav class="navbar">
             <ul>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -18,10 +19,19 @@
             </ul>
         </nav>
 
-<div class="main-content">
-            <h2>Analytics page</h2>
-            <!-- Add saved projects content here -->
-</div>
+    <div class="main-content">
+            <h1>Analysis of Projects</h1>
+            <div>
+        <ul>
+            {% for project in project_data %}
+                <li>
+                    <strong>{{ project.name }}</strong> - {{ project.completion_percentage }}% Complete
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+        </div>
 
+    </div>
 </body>
 </html>
