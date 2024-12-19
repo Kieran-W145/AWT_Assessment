@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Assemble</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar (Navbar) -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('saved_projects') }}">Saved Projects</a></li>
+                <li><a href="{{ url_for('analytics') }}">Analytics</a></li>
+                <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+            </ul>
+        </nav>
+
+
+
+
+        <div class="main-content">
+
+            <h1>Welcome to Assemble</h1>
+
+            <div class="buttons">
+                <button onclick="openModal()">Create a New Project</button>
+
+
+                <!-- Open Existing Project Button -->
+                <a href="/saved_projects">
+                    <button>Open Existing Project</button>
+                </a>
+            </div>
+
+            <!-- Modal for Creating a New Task -->
+            <div id="taskModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Create a New Project</h2>
+                    <form action="{{ url_for('create_task') }}" method="POST">
+                        <label for="task_name">Project Name:</label>
+                        <input type="text" id="task_name" name="task_name" required><br><br>
+
+                        <label for="date_added">Date Added:</label>
+                        <input type="date" id="date_added" name="date_added" required><br><br>
+
+                        <label for="description">Short Description:</label>
+                        <textarea id="description" name="description" required></textarea><br><br>
+
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("taskModal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("taskModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
